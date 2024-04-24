@@ -15,6 +15,9 @@ class URRobot(Robot):
         [print("in ur robot") for _ in range(4)]
         try:
             self.robot = rtde_control.RTDEControlInterface(robot_ip)
+
+
+
         except Exception as e:
             print(e)
             print(robot_ip)
@@ -24,7 +27,7 @@ class URRobot(Robot):
             from gello.robots.robotiq_gripper import RobotiqGripper
 
             self.gripper = RobotiqGripper()
-            self.gripper.connect(hostname=robot_ip, port=63352)
+            self.gripper.connect(device="/tmp/ttyUR")
             print("gripper connected")
             # gripper.activate()
 
